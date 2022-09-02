@@ -39,7 +39,7 @@
             return $this->genres;
         }
 
-        public function setGenre($genre) {
+        public function addGenre($genre) {
             $this->genres[] = $genre;
         }
 
@@ -48,17 +48,17 @@
     $movies = [];
 
     $harryPotter = new Movie("Harry Potter", "J.K. Rowling", 1997);
-    $harryPotter->setGenre("Fantasy");
-    $harryPotter->setGenre("Adventure");
+    $harryPotter->addGenre("Fantasy");
+    $harryPotter->addGenre("Adventure");
 
     $rockyBalboa = new Movie("Rocky Balboa", "John G. Avildsen", 1976);
-    $rockyBalboa->setGenre("Sport");
-    $rockyBalboa->setGenre("Drama");
+    $rockyBalboa->addGenre("Sport");
+    $rockyBalboa->addGenre("Drama");
 
     $hungerGames = new Movie("Hunger Games", "Gary Ross", 2012);
-    $hungerGames->setGenre("Adventure");
-    $hungerGames->setGenre("Action");
-    $hungerGames->setGenre("Drama");
+    $hungerGames->addGenre("Adventure");
+    $hungerGames->addGenre("Action");
+    $hungerGames->addGenre("Drama");
 
     array_push($movies, $harryPotter, $rockyBalboa, $hungerGames);
 
