@@ -4,7 +4,7 @@
         private ?string $name;
         private ?string $producer;
         private ?int $year;
-        private ?array $genre = [];
+        private ?array $genres = [];
 
         function __construct($_name, $_producer, $_year)
         {
@@ -35,8 +35,12 @@
             $this->year = $year;
         }
 
+        public function getGenres() {
+            return $this->genres;
+        }
+
         public function setGenre($genre) {
-            $this->genre[] = $genre;
+            $this->genres[] = $genre;
         }
 
     };
@@ -57,7 +61,7 @@
     $hungerGames->setGenre("Drama");
 
     array_push($movies, $harryPotter, $rockyBalboa, $hungerGames);
-    var_dump($movies);
+
 ?>
 
 
@@ -71,6 +75,28 @@
     <title>Php OOP</title>
 </head>
 <body>
+
+    <h1>Films:</h1>
+    <ol>
+        <?php foreach ($movies as $movie) { ?>
+            <li>
+                <?php echo "Name: " . $movie->getName() . " - " . "Produced by: " . $movie->getProducer() . " in the year " . $movie->getYear() ?>
+                <br> Genres: 
+                <ul>
+                    <?php foreach ($movie->getGenres() as $genre) { ?>
+                        
+                        <li>
+                            <?php echo $genre ?>
+                        </li>
+                        
+                    <?php } ?>
+                </ul>
+            </li>
+            <br>
+        <?php }?>
+    </ol>
+    <?php 
     
+    ?>
 </body>
 </html>
